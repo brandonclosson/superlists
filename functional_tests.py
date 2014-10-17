@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import time
 import unittest
 
 class NewVisitorTest(unittest.TestCase):
@@ -32,6 +33,7 @@ class NewVisitorTest(unittest.TestCase):
 		# User hits enter, the page updates, and page lists
 		# "1: Buy peacock feathers" into a text box
 		inputbox.send_keys(Keys.ENTER)
+		time.sleep(10)
 		table = self.browser.find_element_by_id('id_list_table')
 		rows = table.find_elements_by_tag_name('tr')
 		self.assertTrue(
