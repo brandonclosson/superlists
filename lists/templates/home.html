@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
 
-{% block header_text %}{% url 'new_list' %}{% endblock %}
+{% block header_text %}To-Do Lists{% endblock %}
 
-{% block form_action %}/lists/new{% endblock %}
+{% block form_action %}{% url 'new_list' %}{% endblock %}
