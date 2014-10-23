@@ -20,15 +20,13 @@ class ItemValidationTest(FunctionalTest):
         self.browser.find_element_by_id("id_new_item").send_keys('\n')
 
         # User receives similar warning on their list
-        error = self.browser.find_element_by_id('.has-error')
+        error = self.browser.find_element_by_css_selector('.has-error')
         self.assertEqual(error.text, "You can't have an empty list item")
 
         # User corrects it by filling in text
         self.browser.find_element_by_id("id_new_item").send_keys('Make Tea\n')
         self.check_for_row_in_list_table('1: Buy Milk')
         self.check_for_row_in_list_table('2: Make Tea')
-
-        self.fail("write me!")
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
